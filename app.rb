@@ -37,7 +37,8 @@ def save_image(text_lines, dir, id)
     self.background_color = $options[:background]
   }
 
-  position = -4
+  # -4 - unknown delta, but Draw.annotate lowered my text by 4px
+  position = -4 + ((height - text_height) / 2).to_i
   text_lines.each do |row|
     position += $options[:line_height]
     if row.size > 0
