@@ -31,7 +31,7 @@ def save_image(text_lines, dir, id)
   gs.undercolor = $options[:text_background]
 
   text_height = text_lines.length * $options[:line_height]
-  height = text_height > 480 ? 960 : 480
+  height = 480
 
   img.new_image(480, height) {
     self.background_color = $options[:background]
@@ -58,7 +58,7 @@ def save_item(dir, text)
 
   text = word_wrap(text)
   text_lines = text.split("\n")
-  max_rows = 960 / $options[:line_height]
+  max_rows = 480 / $options[:line_height]
   max_images = (text_lines.length.to_f / max_rows).ceil
 
   index = 1
