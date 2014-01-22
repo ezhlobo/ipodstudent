@@ -52,7 +52,7 @@ end
 def save_item(dir, text)
   def word_wrap(text, columns = 34)
     text.split("\n").collect do |line|
-      line.length > columns ? line.gsub(/(.{1,#{columns}})(\s+|$)/, "\\1\n").strip : line
+      line.length > columns ? line.gsub(/(.{1,#{columns}})(\.{1}|,{1}|\|{1}|\s+|$)/, "\\1\n").strip : line
     end * "\n"
   end
 
