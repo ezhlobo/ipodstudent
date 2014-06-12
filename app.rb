@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'RMagick'
 include Magick
 
@@ -68,8 +69,8 @@ def save_item(dir, text)
   end
 end
 
-File.open(source_file).read.split("\n////\n").each_with_index do |item, index|
-  title = item.split("\n")[0]
+File.open(source_file, 'r:utf-8').read.split("\n////\n").each_with_index do |item, index|
+  title = item.split("\n")[0].gsub(/[\.,:]\s*$/, "").gsub(/\s*[\.,:]\s*/, " ")
   text = item.gsub(/^#{title}\n/, '')
 
   dir = title or index
